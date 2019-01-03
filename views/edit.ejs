@@ -1,0 +1,28 @@
+<% include partials/head %>
+<form action="/books/edit/<%= items._id %>" style="padding: 25px;" method="POST">
+  <div class="form-group">
+    <label for="recipient-name" class="col-form-label">Title:</label>
+    <input type="text" class="form-control" id="title-text" placeholder="My Latest Novel" name="title" value="<%= items.title %>"></input>
+  </div>
+  <div class="form-group">
+    <label for="message-text" class="col-form-label">image URL:</label>
+    <input class="form-control" id="image-url-text" placeholder="https://myimageurl.com/" name="image" value="<%= items.image %>"></input>
+  </div>
+  <div class="form-group">
+    <label for="message-text" class="col-form-label">author:</label>
+    <input class="form-control" id="author-text" placeholder="John Smith" name="author" value="<%= items.author %>"></input>
+  </div>
+  <div class="form-group">
+    <label for="message-text" class="col-form-label">description:</label>
+    <textarea class="form-control" id="description-text" placeholder="A story about a young boy who..." name="description"><%= items.description %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="message-text" class="col-form-label">website URL:</label>
+    <input class="form-control" id="website-url-text" placeholder="https://buymybookhere.com" name="website" value="<%= items.website %>"></input>
+  </div>
+</div>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+<a  href="/books/delete/<%= items._id %>" class="btn btn-danger">Delete</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+  <% include partials/head %>
+  <section class="jumbotron text-center">
+         <div class="container">
+           <h1 class="jumbotron-heading">Our Catalogue</h1>
+           <p class="lead text-muted">View the current available books here.</p>
+         </div>
+       </section>
+       <div class= py-5 bg-light>
+  <div class="container">
+    <div class="row">
+              <% for(var i=0; i<items.length; i++) {%>
+                <div class="col-md-4">
+                  <div class="card">
+                     <input type="hidden" id="Id" name="Id" value="<%= items[i]._id %>">
+                    <div class="card-header"><%= items[i].title %>
+                    </div>
+                    <img class="card-img-top" style="height: 300px; width: 100%; display: block;" src="<%= items[i].image %>" data-holder-rendered="true">
+                    <div class="card-body">
+                      <h5 class="card-title"></h5>
+                      <h6 class="card-subtitle text-muted"><%= items[i].author %></h6>
+                      <p class="card-text"><%= items[i].description %></p>
+                      <a href="<%= items[i].website %>" class="card-link">To Website</a>
+                    </div>
+                    <div class="card-footer">
+                      <a  href="/books/edit/<%= items[i]._id %>" class="editItem btn btn-info">Edit</a>
+                    </div>
+                  </div>
+                </div >
+
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+
+
+  <% include partials/addModal %>
+  <button style="position: fixed; bottom: 50px; right: 50px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@getbootstrap">Add New Item</button>
+</body>
+</html>
